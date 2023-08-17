@@ -1,0 +1,24 @@
+@use "../global/global.scss" as *;
+
+.header-container {
+    background-image: url(../assets/images/background.png);
+    min-height: 50vh;
+
+    h1 {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 7.5rem;
+        @include flex-center;
+        padding-top: 150px;
+        letter-spacing: 2px;
+    }
+
+    h3 {
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 300;
+        @include flex-center;
+        letter-spacing: 1px;
+    }
+}

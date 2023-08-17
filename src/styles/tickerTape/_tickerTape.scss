@@ -1,0 +1,58 @@
+@use "../global/global.scss" as *;
+
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+  background-color: $black-bg;
+}
+
+.slick-slider {
+  position: relative;
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+
+  img {
+    max-width: 100%;
+    max-height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
+.slick-dots,
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+.ticker-items {
+  @include flex-center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.positive-negative {
+  margin: 0 20px 0 15px;
+}
+
+.price-change {
+  margin-left: 7px;
+}
+
+.negative {
+  color: rgb(255, 0, 0);
+}
+
+.positive {
+  color: rgb(0, 255, 0);
+}
