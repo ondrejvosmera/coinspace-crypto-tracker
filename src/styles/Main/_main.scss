@@ -1,0 +1,31 @@
+@use "../global/global.scss" as *;
+
+.main-container {
+    color: #fff;
+    @include flex-center;
+    flex-direction: column;
+
+    .search {
+        margin: 150px 0 50px 0;
+    }
+
+
+    .coin-list {
+        background-color: $black-bg;
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        border-radius: 50px;
+
+        .coin-header {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+

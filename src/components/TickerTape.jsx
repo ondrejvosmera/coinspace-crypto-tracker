@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tape } from '../config/api.js';
+import { CoinList } from '../config/api.js';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -10,7 +10,7 @@ const TickerTape = () => {
 
   const fetchTickerTape = async () => {
     try {
-      const response = await fetch(Tape());
+      const response = await fetch(CoinList());
       if (response.ok) {
         const data = await response.json();
         setTicker(data);
@@ -66,7 +66,7 @@ const TickerTape = () => {
     <div className="ticker-container">
       <Slider {...settings}>
         {handpickedCoins.map(coin => (
-          <Link to={`/coins/${coin.id}`} key={coin.id} className="ticker-item">
+          <Link to={`/${coin.id}`} key={coin.id} className="ticker-item">
           <div className='ticker-items'>
             <img src={coin?.image} alt={coin.name} />
             {coin.symbol}

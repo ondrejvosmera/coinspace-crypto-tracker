@@ -1,9 +1,6 @@
 @use "../global/global.scss" as *;
 
 .header-container {
-    background-image: url(../assets/images/background.png);
-    min-height: 50vh;
-
     h1 {
         color: #fff;
         text-transform: uppercase;

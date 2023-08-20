@@ -12,6 +12,7 @@ html {
 body {
   position: relative;
   font-family: "Space Grotesk", sans-serif;
+  background-image: url(../assets/images/background.png);
 }
 
 a {
@@ -76,10 +77,6 @@ a {
   color: rgb(0, 255, 0);
 }
 
-.header-container {
-  background-image: url(../assets/images/background.png);
-  min-height: 50vh;
-}
 .header-container h1 {
   color: #fff;
   text-transform: uppercase;
@@ -99,6 +96,32 @@ a {
   align-items: center;
   justify-content: center;
   letter-spacing: 1px;
+}
+
+.main-container {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-container .search {
+  margin: 150px 0 50px 0;
+}
+.main-container .coin-list {
+  background-color: #131313;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-radius: 50px;
+}
+.main-container .coin-list .coin-header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.main-container .coin-list .coin-header p {
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
