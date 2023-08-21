@@ -6,25 +6,76 @@
     flex-direction: column;
 
     .search {
-        margin: 150px 0 50px 0;
+        margin: 100px 0 50px 0;
+        @include flex-center;
+        flex-direction: column;
+        gap: 20px;
+
+        input {
+            width: 250px;
+            height: 50px;
+            background-color: $black-bg;
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        input[type=text]:focus {
+            border: none;
+          }
     }
 
 
     .coin-list {
-        background-color: $black-bg;
+        background-color: rgba($color: $black-bg, $alpha: 0.8);
         display: flex;
         flex-direction: column;
         width: 80%;
         border-radius: 50px;
+        padding: 30px;
 
         .coin-header {
             display: flex;
-            justify-content: space-between;
+            font-weight: 600;
+            justify-content: flex-start;
             flex-direction: row;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
+            padding: 0 7px 20px 7px;
 
             p {
                 font-size: 1rem;
             }
+
+            .col1 {
+                width: 5%;
+                display: flex;
+                justify-content: flex-start;
+            }
+            
+            .col2 {
+                width: 25%;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            .col3, .col6 {
+                width: 20%;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .col4, .col5 {
+                width: 15%;
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        .coin-row {
+            display: flex;
+            flex-direction: column;
         }
     }
 }
