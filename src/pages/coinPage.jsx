@@ -1,9 +1,13 @@
 import React from 'react'
+import CoinInfo from '../components/CoinInfo';
 
-const coinPage = () => {
+const CoinPage = () => {
+
   return (
-    <div>coinPage</div>
+    <>
+    <CoinInfo />
+    </>
   )
 }
 
-export default coinPage
+export default CoinPage;

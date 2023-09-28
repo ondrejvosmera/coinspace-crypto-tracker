@@ -5,7 +5,7 @@
     flex-direction: row;
     border-bottom: 1px solid rgba($color: #fff, $alpha: 0.5);
     align-items: center;
-    padding: 10px;
+    padding: 25px 5px 25px 5px;
     color: #fff;
 
     &:hover {
@@ -39,13 +39,13 @@
         }
     }
 
-    .col3, .col6 {
+    .col5, .col6 {
         width: 20%;
         display: flex;
         justify-content: flex-end;
     }
 
-    .col4, .col5 {
+    .col3, .col4 {
         width: 15%;
         display: flex;
         justify-content: flex-end;

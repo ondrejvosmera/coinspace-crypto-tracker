@@ -1,14 +1,15 @@
 @use "../global/global.scss" as *;
 
 .header-container {
+
     h1 {
         color: #fff;
         text-transform: uppercase;
         font-size: 7.5rem;
         @include flex-center;
-        padding-top: 150px;
+        padding-top: 100px;
         letter-spacing: 2px;
-    }
+      }
 
     h3 {
         color: #fff;
