@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SingleCoin } from '../config/api.js';
+import debounce from 'lodash.debounce';
 
 const CoinInfo = () => {
 
@@ -15,7 +16,6 @@ const CoinInfo = () => {
         if (response.ok) {
           const data = await response.json();
           setCoin(data);
-          console.log(data);
         } else {
           console.error('Failed to fetch ticker tape data');
         }
@@ -23,16 +23,16 @@ const CoinInfo = () => {
         console.error('An error occurred while fetching data:', error);
       }
     };
-  
-    console.log(coin);
+
+    const fetchCoinDebounced = debounce(fetchCoin, 1000);
   
     useEffect(() => {
-      fetchCoin();
+      fetchCoinDebounced();
     }, []);
 
   return (
-    <div>CoinInfo</div>
+    <h1 style={{ color: 'white' }}>{id}</h1>
   )
 }
 
-export default CoinInfo
+export default CoinInfo;

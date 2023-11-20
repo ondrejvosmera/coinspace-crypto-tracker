@@ -9,7 +9,7 @@ function App() {
   return (
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/coins/:id" element={<CoinPage />} />
+          <Route path="/:id" element={<CoinPage />} />
         </Routes>
   );
 }
