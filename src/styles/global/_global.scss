@@ -6,14 +6,14 @@
     padding: 0;
   }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   position: relative;
   font-family: "Space Grotesk", sans-serif;
   background-image: url(../assets/images/background.png);
+  scroll-behavior: smooth;
 }
 
 a {

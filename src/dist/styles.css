@@ -5,14 +5,14 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
   position: relative;
   font-family: "Space Grotesk", sans-serif;
   background-image: url(../assets/images/background.png);
+  scroll-behavior: smooth;
 }
 
 a {
@@ -223,16 +223,21 @@ a {
 .coin-info-container {
   color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .coin-info-container .left-col {
-  max-width: 30%;
+  width: 30%;
+  padding: 0 50px 0 50px;
 }
 .coin-info-container .left-col .title {
   font-size: 2rem;
 }
 .coin-info-container .left-col img {
   width: 100px;
+}
+.coin-info-container .right-col {
+  width: 70%;
+  padding: 0 50px 0 50px;
 }
 
 /*# sourceMappingURL=styles.css.map */
