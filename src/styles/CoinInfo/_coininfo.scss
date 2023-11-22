@@ -1,0 +1,20 @@
+@use "../global/global.scss" as *;
+
+.coin-info-container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    .left-col {
+        max-width: 30%;
+
+        .title {
+            font-size: 2rem;
+        }
+    
+        img {
+            width: 100px;
+        }
+    }
+
+}

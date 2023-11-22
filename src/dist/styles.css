@@ -115,6 +115,7 @@ a {
 }
 .main-container .search h2 {
   font-weight: 300;
+  font-size: 1.1rem;
 }
 .main-container .search input {
   width: 250px;
@@ -148,7 +149,7 @@ a {
   padding: 0 7px 20px 7px;
 }
 .main-container .coin-list .coin-header p {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .main-container .coin-list .coin-header .col1 {
   width: 5%;
@@ -217,6 +218,21 @@ a {
   width: 15%;
   display: flex;
   justify-content: flex-end;
+}
+
+.coin-info-container {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.coin-info-container .left-col {
+  max-width: 30%;
+}
+.coin-info-container .left-col .title {
+  font-size: 2rem;
+}
+.coin-info-container .left-col img {
+  width: 100px;
 }
 
 /*# sourceMappingURL=styles.css.map */

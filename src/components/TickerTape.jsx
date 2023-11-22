@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import debounce from 'lodash.debounce';
 
 const TickerTape = () => {
   const [ticker, setTicker] = useState([]);
@@ -22,8 +21,6 @@ const TickerTape = () => {
       console.error('An error occurred while fetching data:', error);
     }
   };
-  
-  const fetchTickerTapeDebounced = debounce(fetchTickerTape, 1000);
 
   useEffect(() => {
     fetchTickerTape();

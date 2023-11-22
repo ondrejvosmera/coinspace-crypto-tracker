@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { SingleCoin } from '../config/api.js';
-import debounce from 'lodash.debounce';
 
 const CoinInfo = () => {
 
     const { id } = useParams();
     const [coin, setCoin] = useState()
-  
-    console.log(id);
   
     const fetchCoin = async () => {
       try {
@@ -23,15 +20,26 @@ const CoinInfo = () => {
         console.error('An error occurred while fetching data:', error);
       }
     };
-
-    const fetchCoinDebounced = debounce(fetchCoin, 1000);
   
     useEffect(() => {
-      fetchCoinDebounced();
+      fetchCoin();
     }, []);
 
+    if (!coin) {
+      return <div>Loading...</div>;
+    }
+
   return (
-    <h1 style={{ color: 'white' }}>{id}</h1>
+    <div className="coin-info-container">
+      <div className="left-col">
+        <img src={coin.image.large} alt={coin.name} />
+        <h1 className='title'>{coin.name}</h1>
+        <p>Rank: {coin.market_cap_rank}</p>
+        <p>Price: ${coin.market_data.current_price.usd}</p>
+        <p>Market cap: ${coin.market_data.market_cap.usd.toLocaleString()}</p>
+        <p>{coin.description.en}</p>
+      </div>
+    </div>
   )
 }
 
