@@ -1,26 +1,86 @@
 @use "../global/global.scss" as *;
 
 .coin-info-container {
+    height: 100vh;
     color: #fff;
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
     .left-col {
         width: 30%;
-        padding: 0 50px 0 50px;
+        padding: 50px;
+        align-self: flex-start;
+
+        img {
+            width: 40px;
+        }
+
+        .coin-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
 
         .title {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
-    
-        img {
-            width: 100px;
+
+        .coin-ticker {
+            text-transform: uppercase;
+            color: rgba($color: #fff, $alpha: 0.7);
+            margin-top: 5px;
+        }
+
+        .coin-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .coin-mcap {
+            margin-bottom: 20px;
         }
     }
 
     .right-col {
         width: 70%;
-        padding: 0 50px 0 50px;
+        padding: 50px 50px 0 50px;
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        align-items: center;
+    }
+
+    .chart {
+        background-color: rgba($color: #181818, $alpha: 0.8);
+        padding: 20px;
+        border-radius: 30px;
+    }
+
+    .chart-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 80px;
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+
+        .chart-button {
+            cursor: pointer;
+            border: 1px solid;
+            border-color: #fff;
+            border-radius: 10px;
+            padding: 5px 10px 5px 10px;
+            transition: ease-in 0.2s;
+        }
+
+        .chart-button:hover {
+            background-color: #fff;
+            color: #000;
+        }
     }
 
 }
