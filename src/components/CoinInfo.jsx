@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Navbar from './Navbar.jsx';
+import Footer from './Footer.jsx';
 import { HistoricalChart, SingleCoin } from '../config/api.js';
 import { Line } from 'react-chartjs-2';
 import {
@@ -81,15 +83,22 @@ const CoinInfo = () => {
       return colorMapping[name.toLowerCase()] || "#00BCE3";
     };
 
-    function limitText(text) {
-      const sentences = text.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s/);
+    function formatText(text) {
+      // Remove HTML tags from the text
+      const textWithoutHTML = text.replace(/<\/?[^>]+(>|$)/g, '');
     
+      // Split the text into an array of sentences
+      const sentences = textWithoutHTML.split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s/);
+    
+      // Take the first 5 sentences
       const limitedText = sentences.slice(0, 5).join(' ');
     
       return limitedText;
-    };
+    }
 
   return (
+    <>
+    <Navbar />
     <div className="coin-info-container">
       <div className="left-col">
         <div className="coin-title">
@@ -100,7 +109,7 @@ const CoinInfo = () => {
         </div>
         <p className='coin-price'>${coin.market_data.current_price.usd.toLocaleString()}</p>
         <p className='coin-mcap'>Market cap: ${coin.market_data.market_cap.usd.toLocaleString()}</p>
-        <p>{limitText(coin.description.en)}</p>
+        <p>{formatText(coin.description.en)}</p>
       </div>
       <div className="right-col">
         {
@@ -109,7 +118,7 @@ const CoinInfo = () => {
           <>
           <div className='chart-buttons'>
             {chartDays.map((day) => (
-              <ChartButtons key={day.value} OnClick={() => setDays(day.value)} selected={day.value === days}>
+              <ChartButtons key={day.value} onClick={() => setDays(day.value)} selected={day.value === days}>
                 {day.label}
               </ChartButtons>
             ))}
@@ -148,6 +157,8 @@ const CoinInfo = () => {
         }
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

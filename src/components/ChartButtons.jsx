@@ -1,11 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-const ChartButtons = ({children, selected, OnClick}) => {
+const ChartButtons = ({ children, selected, onClick }) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <span onClick={OnClick} className='chart-button'>
-        {children}
+    <span
+      onClick={handleClick}
+      className={`chart-button ${selected ? 'active' : ''}`}
+    >
+      {children}
     </span>
-  )
-}
+  );
+};
 
-export default ChartButtons
+export default ChartButtons;
