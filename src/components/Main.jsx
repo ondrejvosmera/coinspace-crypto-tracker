@@ -3,13 +3,14 @@ import { CoinList } from '../config/api.js';
 import { Link } from 'react-router-dom';
 import Coin from './Coin.jsx';
 import Footer from './Footer.jsx';
+import ReactLoading from 'react-loading';
 
 const Main = () => {
     const [coins, setCoins] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState('');
 
-    const coinsPerPage = 20;
+    const coinsPerPage = 10;
 
     useEffect(() => {
         const fetchAllCoins = async () => {
@@ -19,7 +20,7 @@ const Main = () => {
                     const data = await response.json();
                     setCoins(data);
                 } else {
-                    console.error('Failed to fetch ticker tape data');
+                    console.error('Failed to fetch data');
                 }
             } catch (error) {
                 console.error('An error occurred while fetching data:', error);
@@ -40,10 +41,17 @@ const Main = () => {
 
     const totalPages = Math.ceil(filteredCoins.length / coinsPerPage);
 
+    const toTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
     const paginationButtons = Array.from({ length: totalPages }, (_, index) => (
         <button
             key={index + 1}
-            onClick={() => setCurrentPage(index + 1)}
+            onClick={() => {
+                setCurrentPage(index + 1);
+                toTop();
+            }}
             className={index + 1 === currentPage ? "active-pagination" : ""}
         >
             {index + 1}
@@ -72,6 +80,13 @@ const Main = () => {
                         <div className="col5"><p>Volume</p></div>
                         <div className="col6"><p>Market cap</p></div>
                     </div>
+                    {(!coins.length) ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '50px' }}>
+                            <p>Too many API calls... (ERROR 429)</p>
+                            <ReactLoading type="bubbles" color="white" height={'100px'} width={'100px'} />
+                        </div>
+                    ) : (
+                    <>
                     <div className="coin-row">
                         {displayedCoins.map(coin => (
                             <Link to={`${coin.id}`} key={coin.id}>
@@ -89,6 +104,8 @@ const Main = () => {
                             </Link>
                         ))}
                     </div>
+                    </>
+                )}
                 </div>
                 <div className="pagination">
                     {paginationButtons}

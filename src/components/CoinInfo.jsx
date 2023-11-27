@@ -16,6 +16,7 @@ import {
 } from "chart.js";
 import { chartDays } from '../config/chartData.js';
 import ChartButtons from './ChartButtons.jsx';
+import ReactLoading from 'react-loading';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -63,10 +64,6 @@ const CoinInfo = () => {
       fetchHistoricalData();
     }, [days]);
 
-    if (!coin || !historicalData) {
-      return <div>Loading...</div>;
-    }
-
     const getBorderColor = (name) => {
       const colorMapping = {
         bitcoin: "#FFA500",
@@ -101,21 +98,32 @@ const CoinInfo = () => {
     <Navbar />
     <div className="coin-info-container">
       <div className="left-col">
-        <div className="coin-title">
-
-          <img src={coin.image.large} alt={coin.name} />
-          <h2 className='title'>{coin.name}</h2>
-          <p className='coin-ticker'>{coin.symbol}</p>
-        </div>
-        <p className='coin-price'>${coin.market_data.current_price.usd.toLocaleString()}</p>
-        <p className='coin-mcap'>Market cap: ${coin.market_data.market_cap.usd.toLocaleString()}</p>
-        <p>{formatText(coin.description.en)}</p>
+      {(!coin || !historicalData) ? (
+         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <p>Too many API calls... (ERROR 429)</p>
+            <ReactLoading type="bubbles" color="white" height="100px" width="100px" />
+          </div>
+          ) : (
+            <>
+            <div className="coin-title">
+              <img src={coin.image.large} alt={coin.name} />
+              <h2 className='title'>{coin.name}</h2>
+              <p className='coin-ticker'>{coin.symbol}</p>
+            </div>
+            <p className='coin-price'>${coin.market_data.current_price.usd.toLocaleString()}</p>
+            <p className='coin-mcap'>Market cap: ${coin.market_data.market_cap.usd.toLocaleString()}</p>
+            <p>{formatText(coin.description.en)}</p>
+          </>
+          )}
       </div>
       <div className="right-col">
-        {
-          !historicalData ? (<p>Loading...</p>
+      {(!coin || !historicalData) ? (
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+              <p>Too many API calls... (ERROR 429)</p>
+              <ReactLoading type="bubbles" color="white" height="100px" width="100px" />
+          </div>
           ) : (
-          <>
+            <>
           <div className='chart-buttons'>
             {chartDays.map((day) => (
               <ChartButtons key={day.value} onClick={() => setDays(day.value)} selected={day.value === days}>
@@ -152,9 +160,8 @@ const CoinInfo = () => {
             }
           }}
           />
-          </>
-          )
-        }
+        </>
+      )}
       </div>
     </div>
     <Footer />

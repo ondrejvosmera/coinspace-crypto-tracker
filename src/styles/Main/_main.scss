@@ -98,11 +98,14 @@
         cursor: pointer;
         color: #fff;
         background-color: rgba($color: #202020, $alpha: 0.8);
-        border-radius: 50px;
-        padding: 10px 15px 10px 15px;
+        border-radius: 30%;
+        padding: 15px 20px 15px 20px;
         transition: ease-in 0.2s;
         border: none;
         outline: none;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: "Space Grotesk", sans-serif;
     }
     
     .pagination button:hover {

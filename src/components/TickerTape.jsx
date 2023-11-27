@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CoinList } from '../config/api.js';
+import { TickerList } from '../config/api.js';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -10,7 +10,7 @@ const TickerTape = () => {
 
   const fetchTickerTape = async () => {
     try {
-      const response = await fetch(CoinList());
+      const response = await fetch(TickerList());
       if (response.ok) {
         const data = await response.json();
         setTicker(data);
