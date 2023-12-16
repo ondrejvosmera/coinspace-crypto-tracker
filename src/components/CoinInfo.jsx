@@ -20,6 +20,9 @@ import ReactLoading from 'react-loading';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
+const toTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 const CoinInfo = () => {
 
@@ -62,6 +65,7 @@ const CoinInfo = () => {
 
     useEffect(() => {
       fetchHistoricalData();
+      toTop();
     }, [days]);
 
     const getBorderColor = (name) => {

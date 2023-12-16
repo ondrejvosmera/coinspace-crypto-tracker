@@ -119,3 +119,46 @@
     }
 }
 
+/* TABLET MEDIA QUERY */
+
+@media screen and (max-width: 1024px) {
+
+    .coin-header {
+        width: 1000px;
+    }
+
+    .coin-list {
+        overflow-x: auto;
+        padding-left: 100px;
+    }
+
+    .col1 {
+        min-width: 30px;
+    }
+
+    .col2 {
+        min-width: 150px;
+        left: 0;
+        position: sticky;
+    }
+}
+
+/* MOBILE MEDIA QUERY */
+
+@media screen and (max-width: 768px) {
+
+    .main-container {
+        .search {
+            h2 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .pagination {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    
+  }

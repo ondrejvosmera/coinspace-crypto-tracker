@@ -102,3 +102,40 @@
         font-size: 1rem;
     }
 }
+
+/* TABLET MEDIA QUERY */
+
+@media screen and (max-width: 1024px) {
+    .coin-info-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .left-col {
+            width: 100%;
+            padding: 50px;
+        }
+
+        .right-col {
+            width: 100%;  
+        }
+    }
+}
+
+/* MOBILE MEDIA QUERY */
+
+@media screen and (max-width: 768px) {
+    .coin-info-container {
+    
+        height: 90vh;
+
+        .chart-buttons {
+
+            gap: 30px;
+        }
+
+    }
+
+}

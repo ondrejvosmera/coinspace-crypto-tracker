@@ -20,3 +20,33 @@
         letter-spacing: 1px;
     }
 }
+
+/* TABLET MEDIA QUERY */
+
+@media screen and (max-width: 1024px) {
+    .header-container {
+
+        h1 {
+            font-size: 6.5rem;
+          }
+    
+        h3 {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+/* MOBILE MEDIA QUERY */
+
+@media screen and (max-width: 768px) {
+    .header-container {
+
+        h1 {
+            font-size: 3.7rem;
+          }
+    
+        h3 {
+            font-size: 0.9rem;
+        }
+    }
+  }
