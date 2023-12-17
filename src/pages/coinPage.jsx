@@ -1,7 +1,7 @@
 import React from 'react'
 import CoinInfo from '../components/CoinInfo';
 
-const coinPage = () => {
+const CoinPage = () => {
 
   return (
     <>
@@ -10,4 +10,4 @@ const coinPage = () => {
   )
 }
 
-export default coinPage;
+export default CoinPage;
